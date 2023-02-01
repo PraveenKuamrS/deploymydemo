@@ -1,0 +1,41 @@
+<!-- binding can be done with 2 way binding
+    banana in a box
+[(ngModel)]="todo.description"
+[(ngModel)]="todo.username"
+[(ngModel)]="todo.description"
+ [(ngModel)]="todo.targetDate"
+  [(ngModel)]="todo.done"
+     -->
+
+     <h1>Todo</h1>
+     <div class="container">
+        <div class="alert alert-warning" *ngIf="todoForm.dirty && todoForm.invalid">Please enter required data</div>
+       
+        <form (ngSubmit)="!todoForm.invalid && saveTodo()" #todoForm="ngForm">
+            <fieldset class="form-group">
+         <label>UserName</label>
+         <input type="text" class="form-control" #username="ngModel" [(ngModel)]="todo.username" name="username" required="required" maxlength="20" minlength="4"> 
+         <div class="alert alert-warning" *ngIf="todoForm.dirty && username.invalid">Minimunm 5 characters</div>
+        </fieldset>
+         <fieldset class="form-group">
+             <label>Description</label>
+             <input type="text" class="form-control" #description="ngModel" [(ngModel)]="todo.description" name="description" required="required" >
+             <div class="alert alert-warning" *ngIf="todoForm.dirty && description.invalid">Enter Description</div>
+            </fieldset>
+         <fieldset class="form-group">
+             <label>TargetDate</label>
+             <!-- <input type="date" [(ngModel)]="todo.targetDate" name="date" required="required">  -->
+         
+             <input type="date" class="form-control" #date="ngModel" [ngModel]="todo.targetDate | date:'yyyy-MM-dd'" 
+             (ngModelChange)= "todo.targetDate=$event" name="date" required="required">
+         </fieldset>
+         <fieldset class="form-group">
+             <label>IsDone</label>
+             <input type="text" class="form-control" #done="ngModel" [(ngModel)]="todo.done" name="done" required="required">
+         </fieldset>
+         
+     <button  type="submit" class="btn btn-success" >Submit </button>
+    </form>
+     </div>
+     
+    

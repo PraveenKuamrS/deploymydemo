@@ -1,0 +1,38 @@
+<!-- <p>login works!</p> -->
+
+<!-- one way binding -->
+
+<!-- Username :<input type="text" name="username" value={{username}}/><br>
+Paasword :<input type="password" name="password" value={{password}}/><br>  -->
+
+
+<!-- Event binding -->
+<!-- Username :<input type="text" name="username" value={{username}}/><br>
+Paasword :<input type="password" name="password" value={{password}}/><br>
+
+<button (click)="handlelogin()">Login</button> -->
+
+<!-- two way binding -->
+<h1>Login</h1>
+<div class="container" >
+<!-- <small *ngIf="inValidLogic">{{errorMessage}}</small><br> -->
+<div class=alert alert-warning *ngIf="inValidLogic">{{errorMessage}}</div><br>
+
+
+<div>
+Username :<input type="text" name="username" [(ngModel)]="username" /><br>
+Paasword :<input type="password" name="password"  [(ngModel)]="password"/><br>
+
+<button (click)="handlelogin()" class="btn btn-success">Login</button><br>
+
+<button (click)="handlecreate()" class="btn btn-link">Create Account</button>
+</div>
+
+</div>
+
+
+
+
+
+
+

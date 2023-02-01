@@ -1,0 +1,25 @@
+<header>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <div>
+            <a href="http://www.edubridge.com" class="navbar-brand">Edubridge.com</a>
+        </div>
+
+            <ul class="navbar-nav">
+                <li><a *ngIf="hardcodeAuthenticationService.isUserLoggedIn()" routerLink="/welcome/shiva" class ="nav-link">Home</a></li>
+                <li><a *ngIf="hardcodeAuthenticationService.isUserLoggedIn()" routerLink="/todo" class="nav-link">Todos</a></li>
+            </ul>
+        
+     <!-- login logout -->
+
+     <ul class="navbar-nav navbar-collapse justify-content-end">
+        <li>
+            <a *ngIf="!hardcodeAuthenticationService.isUserLoggedIn()" routerLink="/login" class="nav-link">Login</a>
+        </li>
+        <li>
+            <a *ngIf="hardcodeAuthenticationService.isUserLoggedIn()" routerLink="/logout" class="nav-link">Logout</a>
+        </li>
+    </ul>
+
+
+    </nav>
+</header>
